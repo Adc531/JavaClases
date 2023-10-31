@@ -7,6 +7,7 @@ public class Acceso_Aplicacion {
 	String clave;
 	String pass;
 	static int valorMath;
+	private static Scanner entrada;
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -70,7 +71,7 @@ public class Acceso_Aplicacion {
 		//Convierte en entero, no decimales
 		valor = (int)(Math.random()*100);
 		
-		Scanner entrada = new Scanner(System.in);
+		entrada = new Scanner(System.in);
 		int numero = 0;
 		int intento= 0;
 		
@@ -91,7 +92,7 @@ public class Acceso_Aplicacion {
 			}
 			
 		}
-		System .out.println("Correcto, lo has conseguido en" + intento + ".");
+		System .out.println("Correcto, lo has conseguido en " + intento + " intentos.");
 		
 		System.out.println(valor);
 		
