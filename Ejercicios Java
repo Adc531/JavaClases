@@ -5,7 +5,7 @@ import java.util.*;
 public class Acceso_Aplicacion {
 	
 	String clave;
-	String pass;
+	static String pass;
 	static int valorMath;
 	private static Scanner entrada;
 	
@@ -14,7 +14,7 @@ public class Acceso_Aplicacion {
 		
 		String valor;
 		
-		valor = JOptionPane.showInputDialog("Elige una opcion valida del 1-"); 
+		valor = JOptionPane.showInputDialog("Elige una opcion valida del 1-4"); 
 		try {
 			switch (valor) {
 			case "1": {
@@ -28,6 +28,18 @@ public class Acceso_Aplicacion {
 				Ejercicio2(valorMath);
 				
 			}
+			
+			case "3":{
+				Ejercicio3(valorMath);
+			}
+			
+			case "4":{
+				Ejercicio4(pass, valorMath);
+			}
+			case "5":{
+				Ejercicio5();
+			}
+			
 			default:
 				break;
 			}
@@ -43,7 +55,7 @@ public class Acceso_Aplicacion {
 		
 		
 	}
-	//Ejercicio 1
+	//Ejercicio 1 WHILE
 	private static void Ejercicio1(String clave, String pass, int intentos) {
 		while(clave.equals(pass) == false || intentos != 5) {
 			
@@ -65,7 +77,7 @@ public class Acceso_Aplicacion {
 		System.out.println("Contraseña correcta. Permiso concedido");
 	}
 	
-	//Empieza Ejercicio 2
+	//Empieza Ejercicio 2 WHILE
 	private static void Ejercicio2(int valor) {
 		
 		//Convierte en entero, no decimales
@@ -97,5 +109,79 @@ public class Acceso_Aplicacion {
 		System.out.println(valor);
 		
 	}
+	
+	//Empieza Ejercicio3 DO WHILE
+	private static void Ejercicio3(int valor) {
+		
+		valor = (int)(Math.random()*100);
+		
+		entrada = new Scanner(System.in);
+		int numero = 0;
+		int intento= 0;
+		do {
+			intento++;
+			System.out.println("Introduce un numero");
+			numero = entrada.nextInt();
+			
+			if (valor<numero) {
+				
+				System.out.println("Mas bajo");
+				
+			}
+			else if (valor>numero) {
+				
+				System.out.println("mas alto");
+				
+			}
+		}while (numero != valor);
+		System .out.println("Correcto, lo has conseguido en " + intento + " intentos.");
+		
+		System.out.println(valor);
+		
+	}
+	
+	//Empieza ejercicio 4 DO WHILE
+	private static void Ejercicio4(String Genero, int altura) {
+		
+		Genero = "";
+		
+		do {
+			
+			Genero = JOptionPane.showInputDialog("Introduce tu genero (H o M)");
+			
+		}while(Genero.equalsIgnoreCase("H") == false && Genero.equalsIgnoreCase("M") == false);
+		
+		altura = Integer.parseInt(JOptionPane.showInputDialog("Introduce tu altura en cm"));
+		 
+		int Pesoideal= 0;
+		 
+		if (Genero.equalsIgnoreCase("h")) {
+			
+			Pesoideal = altura-110; 
+			
+		} else if (Genero.equalsIgnoreCase("m")) {
+			
+			Pesoideal = altura-120;
+			
+		}
+		
+		JOptionPane.showInternalMessageDialog(null, "Tu peso ideal es: " + Pesoideal + " kg.");
+	}
+	
+	//Empieza ejercicio5 FOR
+	private static void Ejercicio5() {
+		
+		for (int i = 0; i < 10 ; i++) {
+			
+			JOptionPane.showInternalMessageDialog(null, "Raúl aka AnDeCo");
+			
+		}
+		
+		
+		
+	}
+	
+}
+
 	
 }
