@@ -2,12 +2,14 @@ package PrimerosPasos;
 import javax.swing.*;
 import java.util.*;
 
+
 public class Acceso_Aplicacion {
 	
 	String clave;
 	static String pass;
 	static int valorMath;
 	private static Scanner entrada;
+	static boolean a;
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -37,7 +39,7 @@ public class Acceso_Aplicacion {
 				Ejercicio4(pass, valorMath);
 			}
 			case "5":{
-				Ejercicio5();
+				Ejercicio5(valorMath, pass);
 			}
 			
 			default:
@@ -168,16 +170,38 @@ public class Acceso_Aplicacion {
 		JOptionPane.showInternalMessageDialog(null, "Tu peso ideal es: " + Pesoideal + " kg.");
 	}
 	
-	//Empieza ejercicio5 FOR
-	private static void Ejercicio5() {
-		
-		for (int i = 0; i < 10 ; i++) {
-			
+	//Ejercicio 5 FOR
+	private static void Ejercicio5(int arroba, String mail) {
+
+		/*for (int i = 0; i < 10 ; i++) {
 			JOptionPane.showInternalMessageDialog(null, "Raúl aka AnDeCo");
+		} Ejemplo de For*/
+
+		boolean punto = false;
+		int espacio = 0;
+		arroba=0;
+		mail=JOptionPane.showInputDialog("Introduce tu gmail");
+		for (int i = 0; i < mail.length(); i++) {
+			
+			if (mail.charAt(i) == '@') {
+				arroba++;
+			}
+			if (mail.charAt(i) == '.') {
+				punto = true;
+			}
+			if (mail.charAt(i) == ' ') {
+				espacio++;
+			}
 			
 		}
 		
+		if (arroba == 1 && punto == true && espacio == 0) {
 		
+			JOptionPane.showInternalMessageDialog(null, "Es correcto");
+		
+		}else {
+			JOptionPane.showInternalMessageDialog(null, "No es correcto");
+		}
 		
 	}
 	
