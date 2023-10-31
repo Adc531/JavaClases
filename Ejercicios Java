@@ -1,0 +1,100 @@
+package PrimerosPasos;
+import javax.swing.*;
+import java.util.*;
+
+public class Acceso_Aplicacion {
+	
+	String clave;
+	String pass;
+	static int valorMath;
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		String valor;
+		
+		valor = JOptionPane.showInputDialog("Elige una opcion valida del 1-"); 
+		try {
+			switch (valor) {
+			case "1": {
+				
+				//While
+				Ejercicio1("Java", "", 0);
+			}
+			
+			case "2":{
+				
+				Ejercicio2(valorMath);
+				
+			}
+			default:
+				break;
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+		
+		
+		
+	}
+	//Ejercicio 1
+	private static void Ejercicio1(String clave, String pass, int intentos) {
+		while(clave.equals(pass) == false || intentos != 5) {
+			
+			pass = JOptionPane.showInputDialog("Introduce la contraseña");
+			
+			if (clave.equals(pass) == false && intentos != 5) {
+				
+				System.out.println("Contraseña Incorecta");
+				intentos++;
+				
+			}else if (clave.equals(pass) == false && intentos == 5) {
+				 
+				JOptionPane.showInternalMessageDialog(null, "contraseña incorrecta, cerrando programa");
+				System.exit(0);
+					 
+			}
+			
+		}
+		System.out.println("Contraseña correcta. Permiso concedido");
+	}
+	
+	//Empieza Ejercicio 2
+	private static void Ejercicio2(int valor) {
+		
+		//Convierte en entero, no decimales
+		valor = (int)(Math.random()*100);
+		
+		Scanner entrada = new Scanner(System.in);
+		int numero = 0;
+		int intento= 0;
+		
+		while (numero != valor) {
+			intento++;
+			System.out.println("Introduce un numero");
+			numero = entrada.nextInt();
+			
+			if (valor<numero) {
+				
+				System.out.println("Mas bajo");
+				
+			}
+			else if (valor>numero) {
+				
+				System.out.println("mas alto");
+				
+			}
+			
+		}
+		System .out.println("Correcto, lo has conseguido en" + intento + ".");
+		
+		System.out.println(valor);
+		
+	}
+	
+}
