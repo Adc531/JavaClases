@@ -41,7 +41,9 @@ public class Acceso_Aplicacion {
 			case "5":{
 				Ejercicio5(valorMath, pass);
 			}
-			
+			case "6":{
+				Ejercicio6();
+			}
 			default:
 				break;
 			}
@@ -203,6 +205,25 @@ public class Acceso_Aplicacion {
 			JOptionPane.showInternalMessageDialog(null, "No es correcto");
 		}
 		
+	}
+	private static void Ejercicio6(){
+		int [] arrayTotal = new int[3];
+		/*for (int valor : arrayTotal) {
+			valor = Integer.parseInt(JOptionPane.showInputDialog("Introduce un numero"));
+			arrayTotal[j]=valor;
+			j++;
+		}*/
+		
+		
+		for (int i=0; i<arrayTotal.length; i++){
+          arrayTotal [i] = Integer.parseInt(JOptionPane.showInputDialog("Introduce un numero"));
+        }
+
+        Arrays.sort(arrayTotal);
+
+            for (int n : arrayTotal){
+                System.out.println(n);
+            }
 	}
 	
 }
